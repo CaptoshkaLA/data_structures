@@ -12,4 +12,10 @@ func main() {
 
 	fmt.Println("\nDoubly Linked List\n")
 	TestCaseDoublyLinkedList()
+
+	fmt.Println("\nStack\n")
+	TestCaseStack()
+
+	fmt.Println("\nQueue\n")
+	TestCaseQueue()
 }
