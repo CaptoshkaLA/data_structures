@@ -21,4 +21,7 @@ func main() {
 
 	fmt.Println("\nBinary Search Tree\n")
 	TestCaseBinarySearchTree()
+
+	fmt.Println("\nGraph\n")
+	TestCaseGraph()
 }
