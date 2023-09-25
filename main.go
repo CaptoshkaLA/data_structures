@@ -24,4 +24,10 @@ func main() {
 
 	fmt.Println("\nGraph\n")
 	TestCaseGraph()
+
+	fmt.Println("\nHash Table\n")
+	TestCaseHashTable()
+
+	fmt.Println("\nMerkle Tree\n")
+	TestCaseMerkleTree()
 }
