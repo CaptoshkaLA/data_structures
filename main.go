@@ -18,4 +18,7 @@ func main() {
 
 	fmt.Println("\nQueue\n")
 	TestCaseQueue()
+
+	fmt.Println("\nBinary Search Tree\n")
+	TestCaseBinarySearchTree()
 }
