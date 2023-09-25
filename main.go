@@ -9,4 +9,7 @@ func main() {
 
 	fmt.Println("\nLinked List\n")
 	TestCaseLinkedList()
+
+	fmt.Println("\nDoubly Linked List\n")
+	TestCaseDoublyLinkedList()
 }
