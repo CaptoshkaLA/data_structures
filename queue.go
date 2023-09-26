@@ -24,6 +24,14 @@ func (q *Queue) Dequeue() interface{} {
 	return item
 }
 
+// Peek возвращает элемент из начала очереди без удаления
+func (q *Queue) Peek() interface{} {
+	if len(q.data) == 0 {
+		return nil // Очередь пуста
+	}
+	return q.data[0]
+}
+
 // IsEmpty проверяет, пуста ли очередь
 func (q *Queue) IsEmpty() bool {
 	return len(q.data) == 0
@@ -61,6 +69,10 @@ func TestCaseQueue() {
 	fmt.Printf("Вынимаем и добавляем элемент очереди: \n")
 	queue.Dequeue()
 	queue.Enqueue(4)
+
+	// Просматриваем элемент в начале очереди
+	peekedItem := queue.Peek()
+	fmt.Printf("Просмотр элемента в начале очереди: %v\n", peekedItem)
 
 	// Вывод элементов в очереди
 	queue.PrintQueue()

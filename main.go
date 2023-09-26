@@ -30,4 +30,7 @@ func main() {
 
 	fmt.Println("\nMerkle Tree\n")
 	TestCaseMerkleTree()
+
+	fmt.Println("\nSet\n")
+	TestCaseSet()
 }
