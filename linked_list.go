@@ -5,10 +5,10 @@ import (
 )
 
 // Определяем структуру элемента списка
-//type Node struct {
-//	Data int
-//	Next *Node
-//}
+type Node struct {
+	Data int
+	Next *Node
+}
 
 // Определяем структуру связного списка
 type LinkedList struct {

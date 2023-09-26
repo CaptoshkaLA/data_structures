@@ -5,26 +5,26 @@ import (
 )
 
 // Структура для элемента списка
-type Node struct {
+type NodeCLL struct {
 	Data int
-	Next *Node
+	Next *NodeCLL
 }
 
 // Структура для кольцевого списка
 type CircularLinkedList struct {
-	Head *Node
-	Tail *Node
+	Head *NodeCLL
+	Tail *NodeCLL
 }
 
 // Метод добавления элемента в конец списка
 func (cll *CircularLinkedList) Add(data int) {
-	newNode := &Node{Data: data}
+	newNodeCLL := &NodeCLL{Data: data}
 	if cll.Head == nil {
-		cll.Head = newNode
-		cll.Tail = newNode
+		cll.Head = newNodeCLL
+		cll.Tail = newNodeCLL
 	} else {
-		cll.Tail.Next = newNode
-		cll.Tail = newNode
+		cll.Tail.Next = newNodeCLL
+		cll.Tail = newNodeCLL
 	}
 	// Связываем последний элемент с головой, чтобы сделать список кольцевым
 	cll.Tail.Next = cll.Head
@@ -80,7 +80,7 @@ func (cll *CircularLinkedList) Print() {
 }
 
 // Метод получения элемента по индексу
-func (cll *CircularLinkedList) GetByIndex(index int) *Node {
+func (cll *CircularLinkedList) GetByIndex(index int) *NodeCLL {
 	if cll.Head == nil || index < 0 {
 		return nil
 	}
@@ -98,22 +98,22 @@ func (cll *CircularLinkedList) GetByIndex(index int) *Node {
 // Метод вставки элемента по индексу
 func (cll *CircularLinkedList) InsertByIndex(index, data int) {
 	if index == 0 {
-		newNode := &Node{Data: data, Next: cll.Head}
-		cll.Tail.Next = newNode
-		cll.Head = newNode
+		newNodeCLL := &NodeCLL{Data: data, Next: cll.Head}
+		cll.Tail.Next = newNodeCLL
+		cll.Head = newNodeCLL
 		return
 	}
 
-	prevNode := cll.GetByIndex(index - 1)
-	if prevNode == nil {
+	prevNodeCLL := cll.GetByIndex(index - 1)
+	if prevNodeCLL == nil {
 		fmt.Println("Невозможно вставить элемент. Неверный индекс.")
 		return
 	}
 
-	newNode := &Node{Data: data, Next: prevNode.Next}
-	prevNode.Next = newNode
-	if prevNode == cll.Tail {
-		cll.Tail = newNode
+	newNodeCLL := &NodeCLL{Data: data, Next: prevNodeCLL.Next}
+	prevNodeCLL.Next = newNodeCLL
+	if prevNodeCLL == cll.Tail {
+		cll.Tail = newNodeCLL
 	}
 }
 

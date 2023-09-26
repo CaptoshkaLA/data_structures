@@ -5,16 +5,16 @@ import (
 )
 
 // Структура для представления узла двусвязного списка
-type NodeD struct {
+type NodeDLL struct {
 	data interface{}
-	next *NodeD
-	prev *NodeD
+	next *NodeDLL
+	prev *NodeDLL
 }
 
 // Структура для представления двусвязного списка
 type DoublyLinkedList struct {
-	head *NodeD
-	tail *NodeD
+	head *NodeDLL
+	tail *NodeDLL
 	size int
 }
 
@@ -25,15 +25,15 @@ func NewDoublyLinkedList() *DoublyLinkedList {
 
 // Функция для добавления элемента в конец списка
 func (ll *DoublyLinkedList) Append(data interface{}) {
-	newNodeD := &NodeD{data: data}
+	newNodeDLL := &NodeDLL{data: data}
 
 	if ll.size == 0 {
-		ll.head = newNodeD
-		ll.tail = newNodeD
+		ll.head = newNodeDLL
+		ll.tail = newNodeDLL
 	} else {
-		ll.tail.next = newNodeD
-		newNodeD.prev = ll.tail
-		ll.tail = newNodeD
+		ll.tail.next = newNodeDLL
+		newNodeDLL.prev = ll.tail
+		ll.tail = newNodeDLL
 	}
 
 	ll.size++
@@ -45,21 +45,21 @@ func (ll *DoublyLinkedList) RemoveAtIndex(index int) {
 		return
 	}
 
-	currentNodeD := ll.head
+	currentNodeDLL := ll.head
 	for i := 0; i < index; i++ {
-		currentNodeD = currentNodeD.next
+		currentNodeDLL = currentNodeDLL.next
 	}
 
-	if currentNodeD.prev != nil {
-		currentNodeD.prev.next = currentNodeD.next
+	if currentNodeDLL.prev != nil {
+		currentNodeDLL.prev.next = currentNodeDLL.next
 	} else {
-		ll.head = currentNodeD.next
+		ll.head = currentNodeDLL.next
 	}
 
-	if currentNodeD.next != nil {
-		currentNodeD.next.prev = currentNodeD.prev
+	if currentNodeDLL.next != nil {
+		currentNodeDLL.next.prev = currentNodeDLL.prev
 	} else {
-		ll.tail = currentNodeD.prev
+		ll.tail = currentNodeDLL.prev
 	}
 
 	ll.size--
@@ -71,12 +71,12 @@ func (ll *DoublyLinkedList) Get(index int) interface{} {
 		return nil
 	}
 
-	currentNodeD := ll.head
+	currentNodeDLL := ll.head
 	for i := 0; i < index; i++ {
-		currentNodeD = currentNodeD.next
+		currentNodeDLL = currentNodeDLL.next
 	}
 
-	return currentNodeD.data
+	return currentNodeDLL.data
 }
 
 // Функция для вставки элемента по индексу
@@ -85,26 +85,26 @@ func (ll *DoublyLinkedList) InsertAtIndex(index int, data interface{}) {
 		return
 	}
 
-	newNodeD := &NodeD{data: data}
+	newNodeDLL := &NodeDLL{data: data}
 
 	if index == 0 {
-		newNodeD.next = ll.head
-		ll.head.prev = newNodeD
-		ll.head = newNodeD
+		newNodeDLL.next = ll.head
+		ll.head.prev = newNodeDLL
+		ll.head = newNodeDLL
 	} else if index == ll.size {
-		ll.tail.next = newNodeD
-		newNodeD.prev = ll.tail
-		ll.tail = newNodeD
+		ll.tail.next = newNodeDLL
+		newNodeDLL.prev = ll.tail
+		ll.tail = newNodeDLL
 	} else {
-		currentNodeD := ll.head
+		currentNodeDLL := ll.head
 		for i := 0; i < index; i++ {
-			currentNodeD = currentNodeD.next
+			currentNodeDLL = currentNodeDLL.next
 		}
 
-		newNodeD.prev = currentNodeD.prev
-		newNodeD.next = currentNodeD
-		currentNodeD.prev.next = newNodeD
-		currentNodeD.prev = newNodeD
+		newNodeDLL.prev = currentNodeDLL.prev
+		newNodeDLL.next = currentNodeDLL
+		currentNodeDLL.prev.next = newNodeDLL
+		currentNodeDLL.prev = newNodeDLL
 	}
 
 	ll.size++
@@ -112,10 +112,10 @@ func (ll *DoublyLinkedList) InsertAtIndex(index int, data interface{}) {
 
 // Функция для печати списка
 func (ll *DoublyLinkedList) PrintList() {
-	currentNodeD := ll.head
-	for currentNodeD != nil {
-		fmt.Print(currentNodeD.data, " ")
-		currentNodeD = currentNodeD.next
+	currentNodeDLL := ll.head
+	for currentNodeDLL != nil {
+		fmt.Print(currentNodeDLL.data, " ")
+		currentNodeDLL = currentNodeDLL.next
 	}
 	fmt.Println()
 }

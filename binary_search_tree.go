@@ -5,15 +5,15 @@ import (
 )
 
 // Узел бинарного дерева поиска
-type TreeNode struct {
+type NodeBST struct {
 	Data  interface{}
-	Left  *TreeNode
-	Right *TreeNode
+	Left  *NodeBST
+	Right *NodeBST
 }
 
 // Бинарное дерево поиска
 type BST struct {
-	Root *TreeNode
+	Root *NodeBST
 }
 
 // Вставка элемента в BST
@@ -21,9 +21,9 @@ func (bst *BST) Insert(data interface{}) {
 	bst.Root = insertRec(bst.Root, data)
 }
 
-func insertRec(root *TreeNode, data interface{}) *TreeNode {
+func insertRec(root *NodeBST, data interface{}) *NodeBST {
 	if root == nil {
-		return &TreeNode{Data: data}
+		return &NodeBST{Data: data}
 	}
 
 	if data.(int) < root.Data.(int) {
@@ -40,7 +40,7 @@ func (bst *BST) Search(data interface{}) bool {
 	return searchRec(bst.Root, data)
 }
 
-func searchRec(root *TreeNode, data interface{}) bool {
+func searchRec(root *NodeBST, data interface{}) bool {
 	if root == nil {
 		return false
 	}
@@ -59,7 +59,7 @@ func (bst *BST) Delete(data interface{}) {
 	bst.Root = deleteRec(bst.Root, data)
 }
 
-func deleteRec(root *TreeNode, data interface{}) *TreeNode {
+func deleteRec(root *NodeBST, data interface{}) *NodeBST {
 	if root == nil {
 		return root
 	}
@@ -86,7 +86,7 @@ func deleteRec(root *TreeNode, data interface{}) *TreeNode {
 	return root
 }
 
-func minValue(node *TreeNode) interface{} {
+func minValue(node *NodeBST) interface{} {
 	minValue := node.Data
 	for node.Left != nil {
 		minValue = node.Left.Data
@@ -100,7 +100,7 @@ func (bst *BST) PrintTree() {
 	printTreeRec(bst.Root, 0)
 }
 
-func printTreeRec(node *TreeNode, depth int) {
+func printTreeRec(node *NodeBST, depth int) {
 	if node == nil {
 		return
 	}
