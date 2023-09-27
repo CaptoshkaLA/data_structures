@@ -1,51 +1,61 @@
 package main
 
-import "fmt"
+import (
+	"Sandbox_/datastructure/graph"
+	"Sandbox_/datastructure/hash_table"
+	list2 "Sandbox_/datastructure/list"
+	"Sandbox_/datastructure/queue"
+	"Sandbox_/datastructure/set"
+	"Sandbox_/datastructure/stack"
+	tree2 "Sandbox_/datastructure/tree"
+	"Sandbox_/sorting"
+	"fmt"
+)
 
 func main() {
 
 	fmt.Println("\nCircular Linked List\n")
-	TestCaseCircularLinkedList()
+	list2.TestCaseCircularLinkedList()
 
 	fmt.Println("\nLinked List\n")
-	TestCaseLinkedList()
+	list2.TestCaseLinkedList()
 
 	fmt.Println("\nDoubly Linked List\n")
-	TestCaseDoublyLinkedList()
+	list2.TestCaseDoublyLinkedList()
 
 	fmt.Println("\nStack\n")
-	TestCaseStack()
+	stack.TestCaseStack()
 
 	fmt.Println("\nQueue\n")
-	TestCaseQueue()
+	queue.TestCaseQueue()
 
 	fmt.Println("\nBinary Search Tree\n")
-	TestCaseBinarySearchTree()
+	tree2.TestCaseBinarySearchTree()
 
 	fmt.Println("\nGraph\n")
-	TestCaseGraph()
+	graph.TestCaseGraph()
 
 	fmt.Println("\nHash Table\n")
-	TestCaseHashTable()
+	hash_table.TestCaseHashTable()
 
 	fmt.Println("\nMerkle Tree\n")
-	TestCaseMerkleTree()
+	tree2.TestCaseMerkleTree()
 
 	fmt.Println("\nSet\n")
-	TestCaseSet()
+	set.TestCaseSet()
 
 	fmt.Println("\nBubble Sort\n")
-	TestCaseBubbleSort()
+	sorting.TestCaseBubbleSort()
 
 	fmt.Println("\nSelection Sort\n")
-	TestCaseSelectionSort()
+	sorting.TestCaseSelectionSort()
 
 	fmt.Println("\nInsertion Sort\n")
-	TestCaseInsertionSort()
+	sorting.TestCaseInsertionSort()
 
 	fmt.Println("\nMerge Sort\n")
-	TestCaseMergeSort()
+	sorting.TestCaseMergeSort()
 
 	fmt.Println("\nHeap Sort\n")
-	TestCaseHeapSort()
+	sorting.TestCaseHeapSort()
 }
