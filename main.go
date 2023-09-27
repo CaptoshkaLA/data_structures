@@ -39,4 +39,13 @@ func main() {
 
 	fmt.Println("\nSelection Sort\n")
 	TestCaseSelectionSort()
+
+	fmt.Println("\nInsertion Sort\n")
+	TestCaseInsertionSort()
+
+	fmt.Println("\nMerge Sort\n")
+	TestCaseMergeSort()
+
+	fmt.Println("\nHeap Sort\n")
+	TestCaseHeapSort()
 }
