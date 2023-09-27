@@ -2,7 +2,6 @@ package sorting
 
 import "fmt"
 
-// MergeSort рекурсивно сортирует срез методом слияния
 func MergeSort(arr []int) {
 	n := len(arr)
 	if n > 1 {
@@ -23,7 +22,6 @@ func MergeSort(arr []int) {
 	}
 }
 
-// Merge объединяет два отсортированных подмассива B и C в массив A
 func Merge(B, C, A []int) {
 	i, j, k := 0, 0, 0
 	p, q := len(B), len(C)
@@ -54,6 +52,8 @@ func Merge(B, C, A []int) {
 }
 
 func TestCaseMergeSort() {
+	fmt.Println("\nMerge Sort\n")
+
 	arr := []int{64, 1, 25, 12, 46, 5, 22, 49, 11, 2}
 	fmt.Println("Исходный массив:", arr)
 

@@ -4,13 +4,11 @@ import (
 	"fmt"
 )
 
-// Структура для элемента списка
 type NodeCLL struct {
 	Data int
 	Next *NodeCLL
 }
 
-// Структура для кольцевого списка
 type CircularLinkedList struct {
 	Head *NodeCLL
 	Tail *NodeCLL
@@ -126,6 +124,8 @@ func (cll *CircularLinkedList) IsCircular() bool {
 }
 
 func TestCaseCircularLinkedList() {
+	fmt.Println("\nCircular Linked List\n")
+
 	circularList := &CircularLinkedList{}
 
 	circularList.Add(1)
@@ -136,7 +136,6 @@ func TestCaseCircularLinkedList() {
 	fmt.Println("Список:")
 	circularList.Print()
 
-	// Удаление элемента из списка
 	circularList.Remove(2)
 	fmt.Println("После удаления элемента 2:")
 	circularList.Print()

@@ -36,7 +36,8 @@ func (ht *HashTable) Insert(key interface{}, value interface{}) {
 	index := hash(key)
 
 	for ht.data[index] != nil {
-		// Пробируем вперед, если слот занят
+		// Используем метод линейного пробирования
+		// Ищем следующую ячейку, если слот занят
 		index = (index + 1) % tableSize
 	}
 
@@ -55,7 +56,7 @@ func (ht *HashTable) Get(key interface{}) interface{} {
 		index = (index + 1) % tableSize
 	}
 
-	// Если ключ не найден, вернем nil
+	// Если ключ не найден, возвращается nil
 	return nil
 }
 
@@ -73,14 +74,14 @@ func (ht *HashTable) Delete(key interface{}) {
 }
 
 func TestCaseHashTable() {
+	fmt.Println("\nHash Table\n")
+
 	hashTable := NewHashTable()
 
-	// Вставляем пары ключ-значение в хеш-таблицу
 	hashTable.Insert("apple", 5)
 	hashTable.Insert("banana", 7)
 	hashTable.Insert("cherry", 9)
 
-	// Получаем значения по ключам
 	fmt.Println("apple:", hashTable.Get("apple"))   // Вывод: apple: 5
 	fmt.Println("banana:", hashTable.Get("banana")) // Вывод: banana: 7
 	fmt.Println("cherry:", hashTable.Get("cherry")) // Вывод: cherry: 9

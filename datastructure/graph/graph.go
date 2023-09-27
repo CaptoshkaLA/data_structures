@@ -39,6 +39,8 @@ func (g *Graph) PrintGraph() {
 }
 
 func TestCaseGraph() {
+	fmt.Println("\nGraph\n")
+
 	// Создаем новый граф
 	graph := NewGraph()
 

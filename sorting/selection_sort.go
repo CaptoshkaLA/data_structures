@@ -21,11 +21,11 @@ func selectionSort(arr []int) {
 }
 
 func TestCaseSelectionSort() {
-	// Пример использования
+	fmt.Println("\nSelection Sort\n")
+
 	arr := []int{64, 1, 25, 12, 46, 5, 22, 49, 11, 2}
 	fmt.Println("Исходный массив:", arr)
 
-	// Применяем сортировку выбором
 	selectionSort(arr)
 
 	fmt.Println("Отсортированный массив:", arr)

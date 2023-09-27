@@ -5,7 +5,6 @@ import (
 	"fmt"
 )
 
-// Определение структуры стека
 type Stack struct {
 	data []interface{}
 }
@@ -44,7 +43,6 @@ func (s *Stack) IsEmpty() bool {
 	return len(s.data) == 0
 }
 
-// Вывод содержимого стека
 func (s *Stack) Print() {
 	for i := len(s.data) - 1; i >= 0; i-- {
 		fmt.Println(s.data[i])
@@ -52,14 +50,14 @@ func (s *Stack) Print() {
 }
 
 func TestCaseStack() {
+	fmt.Println("\nStack\n")
+
 	stack := NewStack()
 
-	// Добавление элементов в стек
 	stack.Push(1)
 	stack.Push(2)
 	stack.Push(3)
 
-	// Вывод содержимого стека
 	fmt.Println("Содержимое стека:")
 	stack.Print()
 

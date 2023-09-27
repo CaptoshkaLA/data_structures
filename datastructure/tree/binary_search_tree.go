@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-// Узел бинарного дерева поиска
 type NodeBST struct {
 	Data  interface{}
 	Left  *NodeBST
@@ -95,7 +94,7 @@ func minValue(node *NodeBST) interface{} {
 	return minValue
 }
 
-// Печать BST в виде дерева (инфиксный обход)
+// Инфиксный обход дерева
 func (bst *BST) PrintTree() {
 	printTreeRec(bst.Root, 0)
 }
@@ -105,23 +104,26 @@ func printTreeRec(node *NodeBST, depth int) {
 		return
 	}
 
-	// Рекурсивно обойти правое поддерево
+	// Рекурсивно обходим правое поддерево
 	printTreeRec(node.Right, depth+1)
 
-	// Вывести отступ для текущего уровня глубины
+	// Выводим отступ для текущего уровня глубины
 	for i := 0; i < depth; i++ {
 		fmt.Print("\t")
 	}
 
-	// Вывести данные узла
+	// Выводим данные узла
 	fmt.Println(node.Data)
 
-	// Рекурсивно обойти левое поддерево
+	// Рекурсивно обходим левое поддерево
 	printTreeRec(node.Left, depth+1)
 }
 
 func TestCaseBinarySearchTree() {
+	fmt.Println("\nBinary Search Tree\n")
+
 	bst := BST{}
+
 	data := []int{50, 30, 70, 20, 40, 60, 80}
 
 	for _, value := range data {

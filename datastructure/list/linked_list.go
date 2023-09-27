@@ -4,13 +4,11 @@ import (
 	"fmt"
 )
 
-// Определяем структуру элемента списка
 type Node struct {
 	Data int
 	Next *Node
 }
 
-// Определяем структуру связного списка
 type LinkedList struct {
 	head *Node
 }
@@ -86,7 +84,6 @@ func (ll *LinkedList) insertAtIndex(index, Data int) error {
 	return nil
 }
 
-// Печать списка
 func (ll *LinkedList) printList() {
 	current := ll.head
 	for current != nil {
@@ -97,6 +94,8 @@ func (ll *LinkedList) printList() {
 }
 
 func TestCaseLinkedList() {
+	fmt.Println("\nLinked List\n")
+
 	list := LinkedList{}
 
 	list.append(1)

@@ -5,35 +5,34 @@ import (
 	"fmt"
 )
 
-// TreeNode представляет узел дерева Меркла.
 type TreeNode struct {
 	Hash  string
 	Left  *TreeNode
 	Right *TreeNode
 }
 
-// NewTreeNode создает новый узел с заданными данными и хеширует их.
+// NewTreeNode создает новый узел с заданными данными и хеширует их
 func NewTreeNode(data string) *TreeNode {
 	hash := calculateHash(data)
 	return &TreeNode{Hash: hash}
 }
 
-// calculateHash вычисляет хеш для данных.
+// calculateHash вычисляет хеш
 func calculateHash(data string) string {
 	hash := sha256.Sum256([]byte(data))
 	return fmt.Sprintf("%x", hash)
 }
 
-// buildMerkleTree строит дерево Меркла из списка данных.
+// buildMerkleTree строит дерево Меркла из списка данных
 func buildMerkleTree(data []string) *TreeNode {
 	var nodes []*TreeNode
 
-	// Создаем листовые узлы и добавляем их в список.
+	// Создаем листовые узлы и добавляем их в список
 	for _, d := range data {
 		nodes = append(nodes, NewTreeNode(d))
 	}
 
-	// Строим дерево Меркла путем комбинирования узлов в пары и создания родительских узлов.
+	// Строим дерево Меркла путем комбинирования узлов в пары и создания родительских узлов
 	for len(nodes) > 1 {
 		var newNodes []*TreeNode
 		for i := 0; i < len(nodes); i += 2 {
@@ -50,17 +49,16 @@ func buildMerkleTree(data []string) *TreeNode {
 		nodes = newNodes
 	}
 
-	// Возвращаем корневой узел дерева Меркла.
+	// Возвращаем корневой узел дерева Меркла
 	return nodes[0]
 }
 
-// printMerkleTree выводит дерево Меркла в более наглядной форме.
 func printMerkleTree(node *TreeNode, indent string, isLeft bool) {
 	if node == nil {
 		return
 	}
 
-	// Выбираем символ для отображения узла в зависимости от его положения.
+	// Выбираем символ для отображения узла в зависимости от его положения
 	var nodeSymbol string
 	if isLeft {
 		nodeSymbol = "├──"
@@ -77,6 +75,8 @@ func printMerkleTree(node *TreeNode, indent string, isLeft bool) {
 }
 
 func TestCaseMerkleTree() {
+	fmt.Println("\nMerkle Tree\n")
+
 	data := []string{"block1", "block2", "block3", "block4"}
 
 	// Строим дерево Меркла из данных.
@@ -86,15 +86,15 @@ func TestCaseMerkleTree() {
 	fmt.Println("Merkle Tree:")
 	printMerkleTree(root, "", false)
 
-	// Пример удаления узла (заменяем "block2" на "block5").
+	// Пример удаления узла (заменяем "block2" на "block5")
 	replaceNode(root.Left.Left, "block5")
 
 	// Выводим обновленное дерево Меркла.
-	fmt.Println("\nUpdated Merkle Tree:")
+	fmt.Println("\nОбновленное Merkle Tree:")
 	printMerkleTree(root, "", false)
 }
 
-// replaceNode заменяет данные в узле и обновляет хеши вверх по дереву.
+// replaceNode заменяет данные в узле и обновляет хеши вверх по дереву
 func replaceNode(node *TreeNode, newData string) {
 	if node == nil {
 		return
@@ -102,7 +102,7 @@ func replaceNode(node *TreeNode, newData string) {
 
 	node.Hash = calculateHash(newData)
 
-	// Рекурсивно обновляем хеши вверх по дереву.
+	// Рекурсивно обновляем хеши вверх по дереву
 	if node.Left != nil {
 		replaceNode(node.Left, newData)
 	}

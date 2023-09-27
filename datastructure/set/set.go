@@ -5,7 +5,6 @@ import (
 	"strings"
 )
 
-// Определение структуры Set (множество)
 type Set struct {
 	data map[string]bool
 }
@@ -38,7 +37,6 @@ func (s *Set) Size() int {
 	return len(s.data)
 }
 
-// Функция для печати содержимого множества
 func (s *Set) PrintSet() {
 	items := []string{}
 	for item := range s.data {
@@ -48,10 +46,10 @@ func (s *Set) PrintSet() {
 }
 
 func TestCaseSet() {
-	// Создаем новое множество
+	fmt.Println("\nSet\n")
+
 	mySet := NewSet()
 
-	// Добавляем элементы
 	mySet.Add("apple")
 	mySet.Add("banana")
 	mySet.Add("cherry")
@@ -59,15 +57,15 @@ func TestCaseSet() {
 	mySet.PrintSet()
 
 	// Проверяем наличие элементов
-	fmt.Println("Contains 'apple':", mySet.Contains("apple")) // Должно быть true
-	fmt.Println("Contains 'grape':", mySet.Contains("grape")) // Должно быть false
+	fmt.Println("Содержит 'apple':", mySet.Contains("apple")) // Должно быть true
+	fmt.Println("Содержит 'grape':", mySet.Contains("grape")) // Должно быть false
 
 	// Получаем размер множества
-	fmt.Println("Size of set:", mySet.Size()) // Должно быть 3
+	fmt.Println("Размер множества:", mySet.Size()) // Должно быть 3
 
 	// Удаляем элемент
 	mySet.Remove("apple")
 
 	mySet.PrintSet()
-	fmt.Println("Size of set after removal:", mySet.Size()) // Должно быть 2
+	fmt.Println("Размер после удаления элемента:", mySet.Size()) // Должно быть 2
 }

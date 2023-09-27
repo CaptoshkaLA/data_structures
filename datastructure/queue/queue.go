@@ -4,7 +4,6 @@ import (
 	"fmt"
 )
 
-// Queue представляет собой структуру для хранения очереди
 type Queue struct {
 	data []interface{}
 }
@@ -42,7 +41,6 @@ func (q *Queue) Size() int {
 	return len(q.data)
 }
 
-// PrintQueue выводит все элементы в очереди
 func (q *Queue) PrintQueue() {
 	fmt.Print("Очередь: ")
 	for _, item := range q.data {
@@ -52,6 +50,8 @@ func (q *Queue) PrintQueue() {
 }
 
 func TestCaseQueue() {
+	fmt.Println("\nQueue\n")
+
 	queue := Queue{}
 
 	// Добавление элементов в очередь
@@ -59,22 +59,18 @@ func TestCaseQueue() {
 	queue.Enqueue(2)
 	queue.Enqueue(3)
 
-	// Вывод элементов в очереди
 	queue.PrintQueue()
 
 	// Проверка размера очереди
 	fmt.Printf("Размер очереди: %d\n", queue.Size())
 
-	// Вынимаем и добавляем элемент
 	fmt.Printf("Вынимаем и добавляем элемент очереди: \n")
 	queue.Dequeue()
 	queue.Enqueue(4)
 
-	// Просматриваем элемент в начале очереди
 	peekedItem := queue.Peek()
 	fmt.Printf("Просмотр элемента в начале очереди: %v\n", peekedItem)
 
-	// Вывод элементов в очереди
 	queue.PrintQueue()
 
 	// Извлечение элементов из очереди

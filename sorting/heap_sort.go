@@ -55,11 +55,11 @@ func heapSort(arr []int) {
 }
 
 func TestCaseHeapSort() {
-	// Пример использования сортировки
+	fmt.Println("\nHeap Sort\n")
+
 	arr := []int{64, 1, 25, 12, 46, 5, 22, 49, 11, 2}
 	fmt.Println("Исходный массив:", arr)
 
-	// Вызов пирамидальной сортировки
 	heapSort(arr)
 
 	fmt.Println("Отсортированный массив:", arr)

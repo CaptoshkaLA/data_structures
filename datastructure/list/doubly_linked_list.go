@@ -4,14 +4,12 @@ import (
 	"fmt"
 )
 
-// Структура для представления узла двусвязного списка
 type NodeDLL struct {
 	data interface{}
 	next *NodeDLL
 	prev *NodeDLL
 }
 
-// Структура для представления двусвязного списка
 type DoublyLinkedList struct {
 	head *NodeDLL
 	tail *NodeDLL
@@ -110,7 +108,6 @@ func (ll *DoublyLinkedList) InsertAtIndex(index int, data interface{}) {
 	ll.size++
 }
 
-// Функция для печати списка
 func (ll *DoublyLinkedList) PrintList() {
 	currentNodeDLL := ll.head
 	for currentNodeDLL != nil {
@@ -121,6 +118,8 @@ func (ll *DoublyLinkedList) PrintList() {
 }
 
 func TestCaseDoublyLinkedList() {
+	fmt.Println("\nDoubly Linked List\n")
+
 	ll := NewDoublyLinkedList()
 
 	// Добавление элементов в конец списка
