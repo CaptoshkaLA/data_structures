@@ -33,4 +33,10 @@ func main() {
 
 	fmt.Println("\nSet\n")
 	TestCaseSet()
+
+	fmt.Println("\nBubble Sort\n")
+	TestCaseBubbleSort()
+
+	fmt.Println("\nSelection Sort\n")
+	TestCaseSelectionSort()
 }
